@@ -126,7 +126,7 @@ const Messages = () => {
   }, [searchText, emails]);
 
   return (
-    <div>
+    <div >
       {loading ? (
         <p className="text-center text-3xl">
           <span className="text-gray-600 text-base">Loading emails</span>
