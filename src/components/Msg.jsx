@@ -55,7 +55,7 @@ const Message = ({ email }) => {
 
 export default Message;
 
-/************************** */
+/************************* */
 {
   /* <div> */
   // import React from "react";

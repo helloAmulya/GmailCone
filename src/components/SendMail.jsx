@@ -43,9 +43,11 @@ function SendMail() {
       }`}
     >
       <div className="flex px-3 py-2 bg-[#F2F6Fc] justify-between rounded-t-md">
-        <h1>New Message</h1>
+        <h1> {formData.subject ? `${formData.subject}` : `New  Message`} </h1>
+
         <div className="p-2 rounded-full hover:bg-gray-200 cursor-pointer">
           <RxCross2 size={"20px"} onClick={() => dispatch(setOpen(false))} />
+
           {/* here the value of open from the store is set to false and the send mail closes */}
         </div>
       </div>
@@ -56,9 +58,10 @@ function SendMail() {
           onChange={changeHandler}
           name="to"
           type="text"
-          placeholder="To"
+          placeholder="Recipients"
           className="outline-none py-1"
         />
+        <div className="w-full h-[1px] bg-gray-200"></div>
 
         <input
           value={formData.subject}
@@ -68,6 +71,8 @@ function SendMail() {
           placeholder="Subject"
           className="outline-none py-1"
         />
+        <div className="w-full h-[1px] bg-gray-200"></div>
+
         <textarea
           value={formData.message}
           onChange={changeHandler}

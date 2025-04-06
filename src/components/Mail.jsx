@@ -1,6 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { IoMdMore, IoMdArrowBack } from "react-icons/io";
+import { LuReply } from "react-icons/lu";
+import { IoReturnUpForward } from "react-icons/io5";
+
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
@@ -88,14 +91,18 @@ function Mail() {
         {/* Symbols ends here */}
       </div>
 
-      <div className="h-[90vh] overflow-y-auto p-4 ">
-        <div className="flex items-center justify-between gap-1 bg-white">
-          <div className="gap-2 flex items-center">
-            <h1 className="text-xl font-medium">{selectedEmail?.subject}</h1>
-            <span className="text-sm bg-gray-200 rounded-md px-2">Inbox</span>
+      <div className="h-[90vh] overflow-y-auto p-4  ">
+        <div className="flex items-center justify-between gap-1 bg-white ">
+          <div className="gap-2 flex items-center ml-10">
+            <h1 className="text-xl text-[#1F1F1F] ">
+              {selectedEmail?.subject}
+            </h1>
+            <span className="text-sm text-gray-500 bg-gray-200 rounded-[4px] px-2">
+              Inbox
+            </span>
           </div>
 
-          <div className="flex-none text-gray-400 my-5 text-sm">
+          <div className="flex-none text-[#5e5e5ecc] my-5 mr-10 text-sm">
             <p>
               {/* {new Date(selectedEmail?.createdAt?.seconds * 1000).toUTCString()} */}
               {selectedEmail?.createdAt?.seconds
@@ -105,12 +112,25 @@ function Mail() {
           </div>
         </div>
 
-        <div className="text-gray-500 text-sm">
+        <div className="text-gray-500 text-sm ml-10">
           <h1>{selectedEmail?.to}</h1>
           <span>to me</span>
         </div>
-        <div className="my-10">
-          <p>{selectedEmail?.message}</p>
+        <div className="whitespace-pre-wrap text-gray-700 m-10">
+          {selectedEmail?.message}
+        </div>
+
+        {/* bottom  buttons */}
+        <div className="flex items-center justify-start gap-2 bg-white p-4 ml-5">
+          <div className="flex flex-row justify-center gap-2 px-5 py-2 rounded-full bg-white hover:bg-[#F2F2F2] border border-[#747775]">
+            <LuReply />
+            <button className="text-sm">Reply</button>
+          </div>
+
+          <div className="flex flex-row justify-center gap-2 px-5 py-2 rounded-full bg-white hover:bg-[#F2F2F2] border border-[#747775]">
+            <button className="text-sm">Forward</button>
+            <LuReply className="transform scale-x-[-1]" />
+          </div>
         </div>
       </div>
 
